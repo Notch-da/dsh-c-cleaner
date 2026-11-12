@@ -1,0 +1,3 @@
+- insert:
+    - id: dsh-cleaner
+      name: '@local/dsh-cleaner'

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="C 盘清理">
+  <defs>
+    <linearGradient id="cc-g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3B93F8"/>
+      <stop offset="1" stop-color="#1250BC"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#cc-g)"/>
+  <path d="M41.5 21.5a14.5 14.5 0 1 0 0 21" fill="none" stroke="#ffffff" stroke-width="6.2" stroke-linecap="round"/>
+  <circle cx="46.5" cy="18.5" r="3.7" fill="#ffffff" opacity="0.92"/>
+  <circle cx="53.5" cy="26.5" r="2.2" fill="#ffffff" opacity="0.62"/>
+</svg>

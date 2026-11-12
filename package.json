@@ -1,0 +1,57 @@
+{
+  "name": "dsh-c-cleaner",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "C盘清理：扫描并清理 Windows C 盘临时文件、缓存与更新残留 / C drive cleaner for DeepSeek Harness",
+  "license": "MIT",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "cordis",
+    "deepseek-harness",
+    "windows",
+    "disk-cleanup",
+    "c-drive",
+    "cleaner"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Notch-da/dsh-c-cleaner.git"
+  },
+  "homepage": "https://github.com/Notch-da/dsh-c-cleaner#readme",
+  "bugs": {
+    "url": "https://github.com/Notch-da/dsh-c-cleaner/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE",
+    "docs"
+  ],
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.1-rc.3"
+    },
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  }
+}
