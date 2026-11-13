@@ -961,11 +961,21 @@ export function apply(ctx) {
   ]
 
   ctx.effect(() => {
-    const disposers = routes.map(([endpoint, handler]) => ctx.webServer.register({
-      kind: 'exact',
-      path: `${API}/${endpoint}`,
-      handler: route(handler),
-    }))
+    // 同一份插件被安装两次时，重复的精确路由会让整个启动失败；
+    // 这里把每条路由的注册隔离开，冲突只降级为一条告警。
+    const disposers = []
+    for (const [endpoint, handler] of routes) {
+      try {
+        disposers.push(ctx.webServer.register({
+          kind: 'exact',
+          path: `${API}/${endpoint}`,
+          handler: route(handler),
+        }))
+      } catch (error) {
+        const reason = error instanceof Error ? error.message : String(error)
+        console.warn(`[dsh-cleaner] route ${endpoint} skipped: ${reason}`)
+      }
+    }
     return () => {
       for (const dispose of disposers) {
         try {

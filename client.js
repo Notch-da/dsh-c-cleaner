@@ -7,7 +7,7 @@
  */
 
 window.__ModuleLoader__.load({
-  id: '@local/dsh-cleaner',
+  id: 'dsh-c-cleaner',
   factory(require) {
     const React = require('react')
     const h = React.createElement
